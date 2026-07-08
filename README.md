@@ -26,9 +26,9 @@ Cuando Railway te genere el dominio público, agrega también estas variables re
 ```env
 VITE_BASE_URL=https://TU-DOMINIO.railway.app
 VITE_SHORTCODE_BASE_URL=https://TU-DOMINIO.railway.app
-VITE_BACKEND_API_URL=https://TU-DOMINIO.railway.app/api/v1
-VITE_BACKEND_GQL_URL=https://TU-DOMINIO.railway.app/api/graphql
-VITE_BACKEND_WS_URL=wss://TU-DOMINIO.railway.app/api/graphql
+VITE_BACKEND_API_URL=https://TU-DOMINIO.railway.app/backend/v1
+VITE_BACKEND_GQL_URL=https://TU-DOMINIO.railway.app/backend/graphql
+VITE_BACKEND_WS_URL=wss://TU-DOMINIO.railway.app/backend/graphql
 VITE_ADMIN_URL=https://TU-DOMINIO.railway.app/admin
 WHITELISTED_ORIGINS=https://TU-DOMINIO.railway.app
 REDIRECT_URL=https://TU-DOMINIO.railway.app
@@ -44,15 +44,7 @@ Para **Generate Service Domain**, usa el puerto:
 
 ## Migraciones de base de datos
 
-Hoppscotch necesita correr migraciones Prisma antes de funcionar completamente.
-
-En Railway puedes abrir una shell del servicio y ejecutar:
-
-```bash
-pnpm exec prisma migrate deploy
-```
-
-Si Railway no te deja abrir shell fácilmente, crea temporalmente un deploy command/custom start command para correr esa migración una vez, y luego vuelve al start normal de la imagen.
+Este Dockerfile corre `pnpm dlx prisma migrate deploy` automáticamente antes de iniciar Hoppscotch.
 
 ## URLs
 
