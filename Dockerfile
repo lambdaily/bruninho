@@ -1,3 +1,4 @@
 FROM hoppscotch/hoppscotch:latest
 
-CMD ["sh", "-lc", "pnpm dlx prisma migrate deploy && exec /init"]
+CMD ["sh", "-lc", "pnpm dlx prisma migrate deploy"]
+
