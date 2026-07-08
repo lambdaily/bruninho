@@ -16,7 +16,6 @@ RUN npm install --omit=dev
 COPY server.js ./server.js
 
 RUN mkdir -p /collections
-VOLUME ["/collections"]
 
 EXPOSE 3000
 CMD ["npm", "start"]
